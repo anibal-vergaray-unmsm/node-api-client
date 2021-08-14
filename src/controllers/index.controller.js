@@ -62,7 +62,7 @@ const getAverage = async (req, res) => {
 
 const getGroupByAge = async (req, res) => {
     try {
-        const sql = "SELECT EXTRACT(YEAR FROM age(current_timestamp, fechaDeNacimiento)) as edad, count(*) as cantidad from cliente group by edad";
+        const sql = "SELECT EXTRACT(YEAR FROM age(current_timestamp, fechaDeNacimiento)) as edad, count(*) as cantidad from cliente group by edad order by edad asc";
         const response = await pool.query(sql);
         res.status(200).json(response.rows);
     }
