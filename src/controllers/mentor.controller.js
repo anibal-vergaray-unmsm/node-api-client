@@ -23,7 +23,7 @@ const getMentores= async (req, res) => {
 
 const createMentor = async (req, res) => {
     const {dni, nivel, idMentorSuperior} = req.body;
-    if (dni && nivel && idMentorSuperior){
+    if (dni && nivel){
         try {
             const sql = "INSERT INTO mentor (dni, nivel, idMentorSuperior) VALUES ($1, $2, $3)";
             const response = await pool.query(sql, [dni, nivel, idMentorSuperior]);
